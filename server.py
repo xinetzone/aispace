@@ -7,8 +7,6 @@ except:
 NAME = __name__
 
 META_TAGS = [
-    # A description of the app, used by e.g.
-    # search engines when displaying search results.
     {
         'name': 'description',
         'content': 'Using AI to develop anything interesting'
@@ -27,15 +25,16 @@ META_TAGS = [
 ]
 
 
-def create_app(title='Dash'):
-    kwargs = {
+def create_app(name=NAME, title='Dash', **kwargs):
+    kw = {
         'meta_tags': META_TAGS,
         'external_stylesheets': ['https://xinetzone.github.io/Font-Awesome/css/all.css',
                                  'https://xinetzone.github.io/w3css/4/w3.css',
                                  'https://xinetzone.github.io/xinet-css/tabs.css'],
         # 'external_scripts': ['https://www.google-analytics.com/analytics.js']
     }
-    app = Dash(NAME, title=title, **kwargs)
+    kwargs.update(kw)
+    app = Dash(name, title=title, **kwargs)
     return app
 
 
