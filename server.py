@@ -34,8 +34,7 @@ def create_app(name=NAME, title='Dash', **kwargs):
         # 'external_scripts': ['https://www.google-analytics.com/analytics.js']
     }
     kwargs.update(kw)
-    app = Dash(name, title=title, **kwargs)
-    return app
+    return Dash(name, title=title, **kwargs)
 
 
 async def run_server(app, layout, host='127.0.0.1', port=10000, debug=True):
